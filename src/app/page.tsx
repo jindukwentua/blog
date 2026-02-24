@@ -1,64 +1,191 @@
-import Image from "next/image";
+
+const posts = [
+  {
+    date: "2026-01-12",
+    title: "Respectful use of AI in software development teams",
+    url: "#",
+    category: "Data",
+    section: "latest",
+  },
+  {
+    date: "2025-11-18",
+    title: "Measuring the accuracy of record linkage",
+    url: "#",
+    category: "Data",
+    section: "latest",
+  },
+  {
+    date: "2025-09-23",
+    title: "Using a fault tolerant trie for address matching",
+    url: "#",
+    category: "Data",
+    section: "latest",
+  },
+  // Data science and engineering section
+  {
+    date: "2026-01-12",
+    title: "Respectful use of AI in software development teams",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2025-05-18",
+    title: "Putting Scaffolding Around Vibe Coding to Build More Complex Apps",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2025-03-16",
+    title: "Why DuckDB is my first choice for data processing",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2025-01-01",
+    title: "AI probably won't replace me in 2025",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2024-12-08",
+    title: "The emerging impact of LLMs on my productivity",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2023-10-19",
+    title: "Thoughts and questions about the short term impact of LLMs on knowledge workers",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2023-03-09",
+    title: "Splink and the Open Source Dividend",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2023-01-30",
+    title: "SQL should be the default choice for data transformation logic",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2023-01-09",
+    title: "Why parquet files are my preferred API for bulk open data",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2022-08-05",
+    title: "Splink 3: Fast, accurate and scalable linkage in Python",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2021-10-29",
+    title: "The Thorniest Problem of Building an Analytical Platform",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2020-11-17",
+    title: "The Downfall of Command and Control Data Leadership",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+  {
+    date: "2020-12-22",
+    title: "Demystifying Apache Arrow",
+    url: "#",
+    category: "Data",
+    section: "data",
+  },
+];
+
+const categories = [
+  "All",
+  "Data",
+  "Probabilistic linkage",
+  "Energy",
+  "Other",
+  "Quotes/Links",
+];
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-white font-sans">
+      {/* Header */}
+      <header className="border-b border-gray-100 bg-[#1a237e] px-4 py-2 flex items-center justify-between shadow-sm">
+        <div className="flex items-center gap-2">
+          <span className="text-2xl font-bold text-white tracking-tight">
+            <span className="text-[#42a5f5]">&gt;</span>
+            <span className="text-white">Jindu</span>
+            <span className="text-[#42a5f5]"> Kwentua</span>
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <nav className="flex items-center gap-6 text-base">
+          <a href="/" className="hover:underline text-white">Home</a>
+          <a href="/about" className="hover:underline text-white">About</a>
+        </nav>
+      </header>
+
+      {/* Filter Bar */}
+      <div className="border-b border-gray-100 bg-gray-50 px-4 py-2 flex items-center gap-4 text-sm">
+        <span className="font-semibold text-gray-700">Filter:</span>
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            className={`px-3 py-1 rounded-md border text-gray-600 border-gray-200 bg-white font-medium mr-1 ${cat === "All" ? "bg-[#e3f2fd] text-[#1a237e] border-[#42a5f5]" : "hover:bg-gray-100"}`}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Main Content */}
+      <main className="max-w-3xl mx-auto py-8 px-4">
+        {/* Latest Posts */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold mb-4 text-gray-700">Latest Posts</h2>
+          <ul>
+            {posts.filter((p) => p.section === "latest").map((post) => (
+              <li key={post.title} className="mb-2 flex gap-4">
+                <span className="text-gray-400 w-28 inline-block">{post.date}</span>
+                <a href={post.url} className="text-[#1a237e] hover:underline">
+                  {post.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* Data science and engineering */}
+        <section>
+          <h2 className="text-xl font-bold mb-4 text-gray-700">Data science and engineering</h2>
+          <ul>
+            {posts.filter((p) => p.section === "data").map((post) => (
+              <li key={post.title} className="mb-2 flex gap-4">
+                <span className="text-gray-400 w-28 inline-block">{post.date}</span>
+                <a href={post.url} className="text-[#1a237e] hover:underline">
+                  {post.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       </main>
     </div>
   );
