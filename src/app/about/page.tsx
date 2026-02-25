@@ -38,7 +38,7 @@ export default function About() {
   }, [typed, typing, roleIndex]);
 
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans flex flex-col">
       {/* Header - reuse homepage header for consistency */}
       <header className="border-b border-gray-100 bg-[#1a237e] px-4 py-2 flex items-center justify-between shadow-sm">
         <div className="flex items-center gap-2">
@@ -49,12 +49,19 @@ export default function About() {
           </span>
         </div>
         <nav className="flex items-center gap-6 text-base">
-          <a href="/" className="hover:underline text-white">Home</a>
-          <a href="/about" className="hover:underline text-white font-semibold">About</a>
+          <a href="/" className="hover:underline text-white">
+            Home
+          </a>
+          <a href="/about" className="hover:underline text-white font-semibold">
+            About
+          </a>
+          <a href="/blog" className="hover:underline text-white">
+            Blog
+          </a>
         </nav>
       </header>
 
-      <main className="max-w-2xl mx-auto py-8 px-4">
+      <main className="max-w-2xl mx-auto py-8 px-4 flex-1">
         <div className="flex flex-col items-center">
           <div className="w-32 h-32 mb-4 flex items-center justify-center overflow-hidden rounded-full border-4 border-white shadow-md bg-white">
             <Image
@@ -70,32 +77,42 @@ export default function About() {
         <div className="max-w-xl mx-auto text-gray-800">
           <h1 className="text-2xl font-bold text-[#1a237e] mb-2">Jindu Kwentua</h1>
           <p className="mb-4">
-            Hi, I'm <span className="font-semibold">Jindu Kwentua</span>. I am a 
+            Hi, I'm <span className="font-semibold">Jindu Kwentua</span>. I am a&nbsp;
             <span className="font-semibold text-[#1a237e] transition-all duration-300 min-w-[180px] inline-block">
               {typed}
               <span className="animate-pulse">|</span>
             </span>
           </p>
-          <p className="mb-6">I help fintech, banking, and energy companies turn data into business value. I specialize in predictive modeling, customer segmentation, and building scalable data pipelines. I love making data simple, actionable, and impactful.</p>
+          <p className="mb-6">I help organizations turn data into measurable business value responsibly and at scale. I’ve worked across fintech, banking, and energy, delivering predictive models, customer insights, and production-grade data pipelines. My focus is simple: turn data into business value.</p>
 
           <div className="mb-6">
             <h2 className="text-lg font-semibold text-[#1a237e] mb-2">Key Skills</h2>
             <ul className="list-disc ml-6 space-y-1">
+              <li>Scripting, ETL, Data Engineering, Feature Engineering</li>
               <li>Machine Learning (Regression, Classification, Clustering, Forecasting)</li>
-              <li>Python, SQL, R, Airflow, Spark</li>
+              <li>Python, SQL, DuckDB, R, Airflow, Spark</li>
               <li>Cloud: AWS, GCP</li>
               <li>Dashboards: Tableau, PowerBI, Metabase</li>
-              <li>ETL, Data Engineering, Feature Engineering</li>
+              <li>Version Control: Git, GitHub, GitLab</li>
             </ul>
           </div>
 
           <div className="mb-6">
             <h2 className="text-lg font-semibold text-[#1a237e] mb-2">Experience</h2>
-            <ul className="list-disc ml-6 space-y-1">
-              <li><span className="font-semibold">Data Engineer</span>, Asharami Innovations (2024–Now): Built ETL pipelines and ML models for customer insights and retention.</li>
-              <li><span className="font-semibold">Senior Data Scientist</span>, Ecobank Nigeria (2022–2024): Led CLV modeling, segmentation, and campaign analytics for banking products.</li>
-              <li><span className="font-semibold">Data Scientist</span>, OnePipe (2020–2022): Developed credit scoring and fraud detection systems for fintech clients.</li>
-            </ul>
+            <div className="space-y-4 ml-1">
+              <div>
+                <div className="font-semibold">Data Engineer — Sahara Group (Asharami Innovations) | 2024–Present</div>
+                <div>Architected and deployed Energy Advance, a production-grade data and decision system that analyzes customer payment behavior to generate credit limits and risk scores. Built scalable ETL pipelines and analytics to power customer insights, retention, and growth initiatives.</div>
+              </div>
+              <div>
+                <div className="font-semibold">Senior Data Scientist — Ecobank Nigeria | 2022–2024</div>
+                <div>Led customer lifetime value (CLV) modeling, segmentation, and campaign analytics across multiple banking products, enabling data-driven growth and targeting strategies.</div>
+              </div>
+              <div>
+                <div className="font-semibold">Data Scientist — OnePipe | 2020–2022</div>
+                <div>Built credit risk and fraud detection models for fintech partners, improving risk assessment and transaction monitoring through production-ready data science systems.</div>
+              </div>
+            </div>
           </div>
 
           <div className="mb-6">
@@ -135,6 +152,10 @@ export default function About() {
           </div>
         </div>
       </main>
+      {/* Footer */}
+      <footer className="border-t border-gray-100 bg-[#1a237e] text-white text-center py-4 mt-8">
+        &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
+      </footer>
     </div>
   );
 }
