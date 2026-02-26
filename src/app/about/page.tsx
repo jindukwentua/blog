@@ -82,15 +82,15 @@ export default function About() {
             <h2 className="text-lg font-semibold text-[#1a237e] mb-2">Experience</h2>
             <div className="space-y-4 ml-1">
               <div>
-                <div className="font-semibold">Data Engineer — Sahara Group (Asharami Innovations) | 2024–Present</div>
-                <div>Architected and deployed Energy Advance, a production-grade data and decision system that analyzes customer payment behavior to generate credit limits and risk scores. Built scalable ETL pipelines and analytics to power customer insights, retention, and growth initiatives.</div>
+                <div className="font-semibold">Data Engineer — Sahara Group (Asharami Innovations) | Septemeber 2024 – Present</div>
+                <div>Architected and deployed Energy Advance, a product and decision system that analyzes customer payment behavior to generate credit limits and risk scores. Built scalable ETL pipelines and analytics to power customer insights, retention, and growth initiatives.</div>
               </div>
               <div>
-                <div className="font-semibold">Senior Data Scientist — Ecobank Nigeria | 2022–2024</div>
+                <div className="font-semibold">Senior Data Scientist — Ecobank Nigeria | June 2023 – September 2024</div>
                 <div>Led customer lifetime value (CLV) modeling, segmentation, and campaign analytics across multiple banking products, enabling data-driven growth and targeting strategies.</div>
               </div>
               <div>
-                <div className="font-semibold">Data Scientist — OnePipe | 2020–2022</div>
+                <div className="font-semibold">Data Scientist — OnePipe | September 2020 – June 2023</div>
                 <div>Built credit risk and fraud detection models for fintech partners, improving risk assessment and transaction monitoring through production-ready data science systems.</div>
               </div>
             </div>
@@ -123,7 +123,7 @@ export default function About() {
                   <path d="M10.5 11.5v4h2v-2c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v2h2v-4c0-1.1-.9-2-2-2s-2 .9-2 2z" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round"/>
                 </svg>
               </a>
-              <a href="https://twitter.com/jindukwentua" title="Twitter" target="_blank" rel="noopener noreferrer">
+              <a href="https://twitter.com/jxndu" title="Twitter" target="_blank" rel="noopener noreferrer">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <rect width="24" height="24" rx="4" fill="#1DA1F2"/>
                   <path d="M19 7.5a6.5 6.5 0 01-1.89.52A3.28 3.28 0 0018.5 6a6.56 6.56 0 01-2.08.8A3.28 3.28 0 0012 9.5c0 .26.03.52.08.76A9.32 9.32 0 015 7.1a3.28 3.28 0 001.01 4.37c-.28-.01-.54-.08-.77-.2v.02c0 1.54 1.1 2.83 2.57 3.12-.27.07-.56.1-.85.04.24.75.93 1.3 1.75 1.32A6.6 6.6 0 015 17.5c.41 0 .81-.02 1.2-.07A9.29 9.29 0 0012 19c5.52 0 8.54-4.57 8.54-8.54 0-.13 0-.26-.01-.39A6.1 6.1 0 0021 8.5a6.36 6.36 0 01-1.82.5z" fill="#fff"/>

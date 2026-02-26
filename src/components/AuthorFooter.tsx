@@ -11,19 +11,12 @@ export function AuthorFooter() {
           <strong>Say hi</strong>:{" "}
           <a href="https://www.linkedin.com/in/jindukwentua/" target="_blank" rel="noreferrer">
             LinkedIn
-          </a>{" "}
-          ·{" "}
-          <a href="https://example.com" target="_blank" rel="noreferrer">
-            X
           </a>
         </li>
         <li>
-          <strong>Stay in the loop</strong>: Subscribe to new posts on data,
-          infrastructure, and real-world impact.
-        </li>
-        <li>
           <strong>Contact for consulting</strong>: Reach out if you need help
-          designing or scaling data systems in Africa or similar markets.
+          designing or scaling data systems in Africa or similar markets.{" "}
+          Email me <a href="mailto:talktojindukwentua@gmail.com"><strong>here</strong></a>.
         </li>
       </ul>
     </>
