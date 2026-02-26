@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
 
 const postsDirectory = path.join(process.cwd(), "src/app/blog");
 
@@ -10,7 +11,7 @@ type PostMeta = {
   url: string;
 };
 
-async function getMdxPosts(): Promise<PostMeta[]> {
+async function getAllPosts(): Promise<PostMeta[]> {
   if (!fs.existsSync(postsDirectory)) return [];
 
   const fileNames = fs
@@ -31,77 +32,7 @@ async function getMdxPosts(): Promise<PostMeta[]> {
     })
   );
 
-  return posts;
-}
-
-const staticPosts: PostMeta[] = [
-  {
-    date: "2025-05-18",
-    title: "Putting Scaffolding Around Vibe Coding to Build More Complex Apps",
-    url: "#",
-  },
-  {
-    date: "2025-03-16",
-    title: "Why DuckDB is my first choice for data processing",
-    url: "#",
-  },
-  {
-    date: "2025-01-01",
-    title: "AI probably won't replace me in 2025",
-    url: "#",
-  },
-  {
-    date: "2024-12-08",
-    title: "The emerging impact of LLMs on my productivity",
-    url: "#",
-  },
-  {
-    date: "2023-10-19",
-    title: "Thoughts and questions about the short term impact of LLMs on knowledge workers",
-    url: "#",
-  },
-  {
-    date: "2023-03-09",
-    title: "Splink and the Open Source Dividend",
-    url: "#",
-  },
-  {
-    date: "2023-01-30",
-    title: "SQL should be the default choice for data transformation logic",
-    url: "#",
-  },
-  {
-    date: "2023-01-09",
-    title: "Why parquet files are my preferred API for bulk open data",
-    url: "#",
-  },
-  {
-    date: "2022-08-05",
-    title: "Splink 3: Fast, accurate and scalable linkage in Python",
-    url: "#",
-  },
-  {
-    date: "2021-10-29",
-    title: "The Thorniest Problem of Building an Analytical Platform",
-    url: "#",
-  },
-  {
-    date: "2020-11-17",
-    title: "The Downfall of Command and Control Data Leadership",
-    url: "#",
-  },
-  {
-    date: "2020-12-22",
-    title: "Demystifying Apache Arrow",
-    url: "#",
-  },
-];
-
-async function getAllPosts(): Promise<PostMeta[]> {
-  const mdxPosts = await getMdxPosts();
-  const all = [...mdxPosts, ...staticPosts];
-
-  return all.sort((a, b) => (a.date < b.date ? 1 : -1));
+  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export default async function BlogList() {
@@ -109,26 +40,7 @@ export default async function BlogList() {
 
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
-      <header className="border-b border-gray-100 bg-[#1a237e] px-4 py-2 flex items-center justify-between shadow-sm">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-white tracking-tight">
-            <span className="text-[#42a5f5]">&gt;</span>
-            <span className="text-white">Jindu</span>
-            <span className="text-[#42a5f5]"> Kwentua</span>
-          </span>
-        </div>
-        <nav className="flex items-center gap-6 text-base">
-          <a href="/" className="hover:underline text-white">
-            Home
-          </a>
-          <a href="/about" className="hover:underline text-white">
-            About
-          </a>
-          <a href="/blog" className="hover:underline text-white font-semibold">
-            Blog
-          </a>
-        </nav>
-      </header>
+      <SiteHeader active="blog" />
 
       <main className="max-w-3xl mx-auto py-8 px-4 flex-1">
         <section className="mb-6">

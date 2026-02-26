@@ -1,6 +1,7 @@
 
 import fs from "fs";
 import path from "path";
+import { SiteHeader } from "@/components/SiteHeader";
 
 type PostMeta = {
   date: string;
@@ -40,21 +41,7 @@ export default async function Home() {
   const recentPosts = await getRecentPosts();
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
-      {/* Header */}
-      <header className="border-b border-gray-100 bg-[#1a237e] px-4 py-2 flex items-center justify-between shadow-sm">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-white tracking-tight">
-            <span className="text-[#42a5f5]">&gt;</span>
-            <span className="text-white">Jindu</span>
-            <span className="text-[#42a5f5]"> Kwentua</span>
-          </span>
-        </div>
-        <nav className="flex items-center gap-6 text-base">
-          <a href="/" className="hover:underline text-white">Home</a>
-          <a href="/about" className="hover:underline text-white">About</a>
-          <a href="/blog" className="hover:underline text-white">Blog</a>
-        </nav>
-      </header>
+      <SiteHeader active="home" />
 
       {/* Main Content */}
       <main className="max-w-3xl mx-auto py-8 px-4 flex-1">

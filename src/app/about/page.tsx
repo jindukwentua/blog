@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { SiteHeader } from "@/components/SiteHeader";
 
 const roles = [
   "Data Scientist",
@@ -39,27 +40,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
-      {/* Header - reuse homepage header for consistency */}
-      <header className="border-b border-gray-100 bg-[#1a237e] px-4 py-2 flex items-center justify-between shadow-sm">
-        <div className="flex items-center gap-2">
-          <span className="text-2xl font-bold text-white tracking-tight">
-            <span className="text-[#42a5f5]">&gt;</span>
-            <span className="text-white">Jindu</span>
-            <span className="text-[#42a5f5]"> Kwentua</span>
-          </span>
-        </div>
-        <nav className="flex items-center gap-6 text-base">
-          <a href="/" className="hover:underline text-white">
-            Home
-          </a>
-          <a href="/about" className="hover:underline text-white font-semibold">
-            About
-          </a>
-          <a href="/blog" className="hover:underline text-white">
-            Blog
-          </a>
-        </nav>
-      </header>
+      <SiteHeader active="about" />
 
       <main className="max-w-2xl mx-auto py-8 px-4 flex-1">
         <div className="flex flex-col items-center">

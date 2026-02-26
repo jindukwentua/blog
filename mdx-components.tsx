@@ -1,10 +1,13 @@
 import type { MDXComponents } from "mdx/types";
+import { AuthorFooter } from "@/components/AuthorFooter";
 
-const components: MDXComponents = {};
+const customComponents: MDXComponents = {
+  AuthorFooter,
+};
 
 export function useMDXComponents(existingComponents: MDXComponents): MDXComponents {
   return {
-    ...components,
+    ...customComponents,
     ...existingComponents,
   };
 }
