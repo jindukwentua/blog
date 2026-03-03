@@ -11,6 +11,17 @@ type PostMeta = {
   url: string;
 };
 
+function formatDate(date: string): string {
+  if (!date) return "";
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return date;
+  return parsed.toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+}
+
 async function getAllPosts(): Promise<PostMeta[]> {
   if (!fs.existsSync(postsDirectory)) return [];
 
@@ -55,14 +66,23 @@ export default async function BlogList() {
           {posts.length === 0 && <p>No blog posts found.</p>}
           <ul>
             {posts.map((post) => (
-              <li key={`${post.date}-${post.title}`} className="mb-2 flex gap-4">
-                <span className="text-gray-400 w-28 inline-block">{post.date}</span>
+              <li key={`${post.date}-${post.title}`} className="mb-4">
                 {post.url.startsWith("/blog/") ? (
-                  <Link href={post.url} className="text-[#1a237e] hover:underline">
+                  <Link
+                    href={post.url}
+                    className="text-[#1a237e] hover:underline text-base font-semibold"
+                  >
                     {post.title}
                   </Link>
                 ) : (
-                  <span className="text-gray-500">{post.title}</span>
+                  <span className="text-gray-700 text-base font-semibold">
+                    {post.title}
+                  </span>
+                )}
+                {post.date && (
+                  <div className="text-gray-400 text-sm mt-1">
+                    {formatDate(post.date)}
+                  </div>
                 )}
               </li>
             ))}
