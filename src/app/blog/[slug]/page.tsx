@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import type { ReactElement } from "react";
 import type { MDXComponents } from "mdx/types";
 import { SiteHeader } from "@/components/SiteHeader";
 
@@ -29,7 +30,7 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const mod = await import(`@/app/blog/${slug}.mdx`);
 
-  const Post = mod.default as (props: { components?: MDXComponents }) => JSX.Element;
+  const Post = mod.default as (props: { components?: MDXComponents }) => ReactElement;
   const { metadata } = mod as { metadata?: { title?: string; date?: string } };
 
   return (
