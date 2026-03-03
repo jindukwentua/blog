@@ -9,6 +9,17 @@ type PostMeta = {
   url: string;
 };
 
+function formatDate(date: string): string {
+  if (!date) return "";
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return date;
+  return parsed.toLocaleDateString("en-GB", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+}
+
 const postsDirectory = path.join(process.cwd(), "src/app/blog");
 
 async function getRecentPosts(limit = 3): Promise<PostMeta[]> {
@@ -79,11 +90,18 @@ export default async function Home() {
           )}
           <ul>
             {recentPosts.map((post) => (
-              <li key={post.url} className="mb-2 flex gap-4">
-                <span className="text-gray-400 w-28 inline-block">{post.date}</span>
-                <a href={post.url} className="text-[#1a237e] hover:underline">
+              <li key={post.url} className="mb-4">
+                <a
+                  href={post.url}
+                  className="text-[#1a237e] hover:underline text-base font-semibold"
+                >
                   {post.title}
                 </a>
+                {post.date && (
+                  <div className="text-gray-400 text-sm mt-1">
+                    {formatDate(post.date)}
+                  </div>
+                )}
               </li>
             ))}
           </ul>
