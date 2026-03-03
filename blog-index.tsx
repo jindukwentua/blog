@@ -5,18 +5,27 @@ import Link from 'next/link';
 
 const postsDirectory = path.join(process.cwd(), 'src/app/blog');
 
-function getPosts() {
+type PostMeta = {
+  slug: string;
+  title?: string;
+  date?: string;
+};
+
+function getPosts(): PostMeta[] {
   if (!fs.existsSync(postsDirectory)) return [];
   const fileNames = fs.readdirSync(postsDirectory).filter((f) => f.endsWith('.mdx'));
-  return fileNames.map((fileName) => {
-    const filePath = path.join(postsDirectory, fileName);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data } = matter(fileContents);
-    return {
-      slug: fileName.replace(/\.mdx$/, ''),
-      ...data,
-    };
-  }).sort((a, b) => (a.date < b.date ? 1 : -1));
+  return fileNames
+    .map((fileName) => {
+      const filePath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const { data } = matter(fileContents) as { data: Record<string, unknown> };
+      return {
+        slug: fileName.replace(/\.mdx$/, ''),
+        title: typeof data.title === 'string' ? data.title : undefined,
+        date: typeof data.date === 'string' ? data.date : undefined,
+      };
+    })
+    .sort((a, b) => ((a.date ?? '') < (b.date ?? '') ? 1 : -1));
 }
 
 export default function BlogList() {
@@ -28,11 +37,15 @@ export default function BlogList() {
         {posts.length === 0 && <li>No blog posts found.</li>}
         {posts.map((post) => (
           <li key={post.slug} className="mb-4">
-            <Link href={`/blog/${post.slug}`}
-              className="text-blue-700 hover:underline text-lg font-semibold">
-              {post.title}
+            <Link
+              href={`/blog/${post.slug}`}
+              className="text-blue-700 hover:underline text-lg font-semibold"
+            >
+              {post.title ?? post.slug}
             </Link>
-            <div className="text-gray-500 text-sm">{post.date}</div>
+            {post.date && (
+              <div className="text-gray-500 text-sm">{post.date}</div>
+            )}
           </li>
         ))}
       </ul>
