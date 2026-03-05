@@ -62,7 +62,7 @@ export default async function Home() {
             Hi, I&apos;m Jindu Kwentua.
           </h1>
           <p className="text-gray-700 mb-4">
-            I work at the intersection of data science, ML, and analytics
+            I work at the intersection of data analytics, data science, and data
             engineering &mdash; helping teams turn messy data into reliable,
             production pipelines and useful models.
           </p>
