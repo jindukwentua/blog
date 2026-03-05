@@ -63,21 +63,20 @@ export default async function Home() {
           </h1>
           <p className="text-gray-700 mb-4">
             I work at the intersection of data analytics, data science, and data
-            engineering &mdash; helping teams turn messy data into reliable,
-            production pipelines and useful models.
+            engineering &mdash; helping teams use data to drive business value.
           </p>
           <div className="flex flex-wrap gap-3">
             <a
               href="/blog"
               className="px-4 py-2 rounded-md bg-[#1a237e] text-white font-semibold hover:bg-[#283593]"
             >
-              Read the blog
+              Read my blog
             </a>
             <a
               href="/about"
               className="px-4 py-2 rounded-md border border-gray-300 text-[#1a237e] font-semibold hover:bg-gray-50"
             >
-              More about me
+              About me
             </a>
           </div>
         </section>
