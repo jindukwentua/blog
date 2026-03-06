@@ -107,7 +107,7 @@ export default async function Home() {
         </section>
       </main>
       <footer className="border-t border-gray-100 bg-[#1a237e] text-white text-center py-4 mt-8">
-        &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
+        &copy; {new Date().getFullYear()} Hilary Jindu Kwentua. All rights reserved.
       </footer>
     </div>
   );
