@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import { NextResponse } from "next/server";
 
+export const runtime = "nodejs";
+
 const postsDirectory = path.join(process.cwd(), "src/app/blog");
 
 type PostMetadata = {
