@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
+const inter = Inter({
   variable: "--font-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
+const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
 });
@@ -16,12 +16,13 @@ export const metadata: Metadata = {
   title: "Jindu Kwentua",
   description:
     "Data engineering, analytics, and machine learning in real-world systems. Stories from building data products in Africa.",
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://jindukwentua.com"),
   openGraph: {
     title: "Jindu Kwentua",
     description:
       "Data engineering, analytics, and machine learning in real-world systems.",
     type: "website",
+    images: ["/sexiest_job.png"],
   },
 };
 
@@ -34,8 +35,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`
-          ${geistSans.variable} 
-          ${geistMono.variable} 
+          ${inter.variable} 
+          ${jetbrainsMono.variable} 
           antialiased
           bg-[#f5f6f7]
           text-[#2d2d2d]

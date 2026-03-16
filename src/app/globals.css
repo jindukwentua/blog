@@ -10,9 +10,6 @@
 
   --card: #ffffff;
   --border: #e5e7eb;
-
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,7 +35,7 @@ body {
   color: var(--foreground);
 
   font-family:
-    var(--font-sans),
+    var(--font-sans, system-ui),
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
