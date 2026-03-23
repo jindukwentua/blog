@@ -11,7 +11,7 @@ export const metadata = {
 
 That was my exact reaction the first time I asked Cursor to scaffold a folder for a side project I was working on.
 
-I wasn’t even trying to do anything fancy. I just didn’t want to waste time creating folders and boilerplate files.
+I wasn’t even trying to do anything fancy. I was working on a web app and I just didn’t want to waste time creating folders and boilerplate files.
 
 So I typed:
 
@@ -68,11 +68,7 @@ Not a snippet in a chat window.
 
 An actual working project.
 
-I ran the CLI just to see what would happen.
-
-It worked.
-
-That’s when it clicked for me.
+I ran the CLI just to see what would happen, it worked. That’s when it clicked for me.
 
 This is what people mean by **agentic coding**.
 
@@ -97,7 +93,31 @@ Normally that would mean opening a few files, writing a query, wiring it into th
 
 Instead I typed:
 
-`Read the codebase and add full-text search across notes. Write tests first.`
+<div
+  style={{
+    backgroundColor: "#111827",
+    color: "#e5e7eb",
+    borderRadius: "0.75rem",
+    padding: "0.75rem 1rem",
+    fontFamily:
+      'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+    fontSize: "0.9rem",
+    border: "1px solid #374151",
+    margin: "1rem 0",
+  }}
+>
+  "Read the codebase and add full-text search across notes.{" "}
+  <code
+    style={{
+      backgroundColor: "#1f2937",
+      padding: "0.1rem 0.4rem",
+      borderRadius: "0.375rem",
+    }}
+  >
+    Write tests first
+  </code>
+  ."
+</div>
 
 Then I just watched.
 
@@ -115,17 +135,13 @@ It created a branch, wrote the commit message, and pushed the code.
 
 By the time I opened GitHub the PR was already there.
 
-That entire loop — idea → implementation → PR — took minutes.
+That entire loop from idea to implementation to PR took minutes.
 
 The biggest shift isn’t that AI writes code.
 
-It’s that you stop thinking:
+It’s that you stop thinking: “How do I write this?”
 
-“How do I write this?”
-
-You start thinking:
-
-“What task should happen next?”
+You start thinking: “How do I explain what I am trying to solve?”
 
 One thing I learned quickly though: **scope matters**.
 
@@ -133,7 +149,7 @@ If the task is small and clear, these tools move ridiculously fast.
 
 If the task is vague or huge, things get messy.
 
-Break problems into small pieces and suddenly it feels like you have another engineer working beside you.
+Break problems into small pieces and suddenly it feels like you have another experienced engineer working beside you.
 
 And the first time you see it happen live in your terminal…
 

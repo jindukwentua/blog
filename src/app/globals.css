@@ -61,6 +61,25 @@ h4 {
   letter-spacing: -0.01em;
 }
 
+/* About page: uniform sans (Inter) — overrides editorial serif for headings */
+.about-page,
+.about-page h1,
+.about-page h2,
+.about-page h3,
+.about-page h4 {
+  font-family:
+    var(--font-sans),
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  letter-spacing: normal;
+}
+
 p {
   margin: 1rem 0;
 }
