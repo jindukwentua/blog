@@ -38,7 +38,7 @@ export default function RootLayout({
           ${inter.variable} 
           ${jetbrainsMono.variable} 
           antialiased
-          bg-[#f5f6f7]
+          bg-[var(--color-page)]
           text-[#2d2d2d]
           min-h-screen
         `}

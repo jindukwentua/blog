@@ -55,14 +55,14 @@ export default async function BlogList() {
 
       <main className="max-w-3xl mx-auto py-8 px-4 flex-1">
         <section className="mb-6">
-          <h1 className="text-2xl font-bold mb-2 text-gray-700">Blog</h1>
+          <h1 className="text-2xl font-bold mb-2 text-[var(--color-brand)]">Blog</h1>
           <p className="text-gray-600">
             All articles in one place &mdash; a mix of data, ML, and engineering topics.
           </p>
         </section>
 
         <section>
-          <h2 className="text-xl font-semibold mb-4 text-gray-700">All articles</h2>
+          <h2 className="text-xl font-semibold mb-4 text-[var(--color-brand)]">All articles</h2>
           {posts.length === 0 && <p>No blog posts found.</p>}
           <ul>
             {posts.map((post) => (
@@ -70,7 +70,7 @@ export default async function BlogList() {
                 {post.url.startsWith("/blog/") ? (
                   <Link
                     href={post.url}
-                    className="text-[#1a237e] hover:underline text-base font-semibold"
+                    className="text-[var(--color-brand)] hover:underline text-base font-semibold hover:text-[var(--color-brand-hover)]"
                   >
                     {post.title}
                   </Link>
@@ -89,7 +89,7 @@ export default async function BlogList() {
           </ul>
         </section>
       </main>
-      <footer className="border-t border-gray-100 bg-[#1a237e] text-white text-center py-4 mt-8">
+      <footer className="border-t border-gray-100 bg-[var(--color-brand)] text-white text-center py-4 mt-8">
         &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
       </footer>
     </div>

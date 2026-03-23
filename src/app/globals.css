@@ -10,6 +10,13 @@
 
   --card: #ffffff;
   --border: #e5e7eb;
+
+  /* Site-wide brand (header, footer, links, accents) */
+  --color-brand: #1a237e;
+  --color-brand-hover: #283593;
+  --color-brand-accent: #42a5f5;
+  --color-page: #ffffff;
+  --color-text-muted: #6b7280;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -152,12 +159,22 @@ p {
 /* Links */
 
 .blog-content a {
-  color: #2563eb;
+  color: var(--color-brand);
   text-decoration: none;
 }
 
 .blog-content a:hover {
+  color: var(--color-brand-hover);
   text-decoration: underline;
+}
+
+/* MDX article (Tailwind prose) — same link color as rest of site */
+article.prose a {
+  color: var(--color-brand);
+}
+
+article.prose a:hover {
+  color: var(--color-brand-hover);
 }
 
 /* HR */

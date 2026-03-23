@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 
-const ACCENT = "#e57373";
+/** Matches header/footer and primary links site-wide */
+const ACCENT = "#1a237e";
 
 const roles = [
   "Data Scientist",
@@ -202,10 +203,10 @@ export default function About() {
           </div>
         </div>
         <div className="max-w-xl mx-auto text-gray-800">
-          <h1 className="text-2xl font-bold text-[#1a237e] mb-2">Jindu Kwentua</h1>
+          <h1 className="text-2xl font-bold text-[var(--color-brand)] mb-2">Jindu Kwentua</h1>
           <p className="mb-4 text-[15px] leading-relaxed">
             Hi, I'm <span className="font-semibold">Jindu Kwentua</span>. I am a&nbsp;
-            <span className="font-semibold text-[#1a237e] transition-all duration-300 min-w-[180px] inline-block">
+            <span className="font-semibold text-[var(--color-brand)] transition-all duration-300 min-w-[180px] inline-block">
               {typed}
               <span className="animate-pulse">|</span>
             </span>
@@ -226,7 +227,7 @@ export default function About() {
                 <span
                   key={skill}
                   className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-medium bg-white/80 shadow-sm"
-                  style={{ borderColor: ACCENT, color: "#b91c1c" }}
+                  style={{ borderColor: ACCENT, color: ACCENT }}
                 >
                   {skill}
                 </span>
@@ -351,7 +352,7 @@ export default function About() {
           </aside>
 
           <div className="mb-6">
-            <h2 className="text-lg font-semibold text-[#1a237e] mb-2">Contact</h2>
+            <h2 className="text-lg font-semibold text-[var(--color-brand)] mb-2">Contact</h2>
             <div className="flex gap-6 items-center ml-2 mt-2">
               <a href="mailto:kwentuajindu@gmail.com" title="Email" target="_blank" rel="noopener noreferrer">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -379,7 +380,7 @@ export default function About() {
           </div>
         </div>
       </main>
-      <footer className="border-t border-gray-100 bg-[#1a237e] text-white text-center py-4 mt-8">
+      <footer className="border-t border-gray-100 bg-[var(--color-brand)] text-white text-center py-4 mt-8">
         &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
       </footer>
     </div>

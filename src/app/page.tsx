@@ -58,7 +58,7 @@ export default async function Home() {
       <main className="max-w-3xl mx-auto py-8 px-4 flex-1">
         {/* Hero */}
         <section className="mb-10">
-          <h1 className="text-3xl font-bold mb-2 text-[#1a237e]">
+          <h1 className="text-3xl font-bold mb-2 text-[var(--color-brand)]">
             Hi, I&apos;m Jindu Kwentua.
           </h1>
           <p className="text-gray-700 mb-4">
@@ -68,13 +68,13 @@ export default async function Home() {
           <div className="flex flex-wrap gap-3">
             <a
               href="/blog"
-              className="px-4 py-2 rounded-md bg-[#1a237e] text-white font-semibold hover:bg-[#283593]"
+              className="px-4 py-2 rounded-md bg-[var(--color-brand)] text-white font-semibold hover:bg-[var(--color-brand-hover)]"
             >
               Read my blog
             </a>
             <a
               href="/about"
-              className="px-4 py-2 rounded-md border border-gray-300 text-[#1a237e] font-semibold hover:bg-gray-50"
+              className="px-4 py-2 rounded-md border border-gray-300 text-[var(--color-brand)] font-semibold hover:bg-gray-50"
             >
               About me
             </a>
@@ -83,7 +83,7 @@ export default async function Home() {
 
         {/* Recent posts */}
         <section>
-          <h2 className="text-2xl font-bold mb-4 text-gray-700">Recent writing</h2>
+          <h2 className="text-2xl font-bold mb-4 text-[var(--color-brand)]">Recent writing</h2>
           {recentPosts.length === 0 && (
             <p className="text-gray-500">New posts coming soon.</p>
           )}
@@ -92,7 +92,7 @@ export default async function Home() {
               <li key={post.url} className="mb-4">
                 <a
                   href={post.url}
-                  className="text-[#1a237e] hover:underline text-base font-semibold"
+                  className="text-[var(--color-brand)] hover:underline text-base font-semibold hover:text-[var(--color-brand-hover)]"
                 >
                   {post.title}
                 </a>
@@ -106,8 +106,8 @@ export default async function Home() {
           </ul>
         </section>
       </main>
-      <footer className="border-t border-gray-100 bg-[#1a237e] text-white text-center py-4 mt-8">
-        &copy; {new Date().getFullYear()} Hilary Jindu Kwentua. All rights reserved.
+      <footer className="border-t border-gray-100 bg-[var(--color-brand)] text-white text-center py-4 mt-8">
+        &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
       </footer>
     </div>
   );

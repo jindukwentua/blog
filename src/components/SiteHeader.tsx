@@ -13,12 +13,12 @@ export function SiteHeader({ active }: SiteHeaderProps) {
     `hover:underline text-white ${active === key ? "font-semibold" : ""}`;
 
   return (
-    <header className="border-b border-gray-100 bg-[#1a237e] px-4 py-2 flex items-center justify-between shadow-sm">
+    <header className="border-b border-gray-100 bg-[var(--color-brand)] px-4 py-2 flex items-center justify-between shadow-sm">
       <div className="flex items-center gap-2">
         <span className="text-2xl font-bold text-white tracking-tight">
-          <span className="text-[#42a5f5]">&gt;</span>
+          <span className="text-[var(--color-brand-accent)]">&gt;</span>
           <span className="text-white">Jindu</span>
-          <span className="text-[#42a5f5]"> Kwentua</span>
+          <span className="text-[var(--color-brand-accent)]"> Kwentua</span>
         </span>
       </div>
       <nav className="flex items-center gap-6 text-base">

@@ -39,14 +39,14 @@ export default async function BlogList() {
 
   return (
     <main className="max-w-3xl mx-auto py-8 px-4">
-      <h1 className="text-2xl font-bold mb-6">Blog</h1>
+      <h1 className="text-2xl font-bold mb-6 text-[var(--color-brand)]">Blog</h1>
       <ul>
         {posts.length === 0 && <li>No blog posts found.</li>}
         {posts.map((post) => (
           <li key={post.slug} className="mb-4">
             <Link
               href={`/blog/${post.slug}`}
-              className="text-blue-700 hover:underline text-lg font-semibold"
+              className="text-[var(--color-brand)] hover:underline text-lg font-semibold hover:text-[var(--color-brand-hover)]"
             >
               {post.title}
             </Link>

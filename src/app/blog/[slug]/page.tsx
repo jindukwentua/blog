@@ -38,7 +38,7 @@ export default async function BlogPostPage({
       <SiteHeader active="blog" />
       <main className="max-w-3xl mx-auto py-8 px-4 flex-1">
         {metadata?.title && (
-          <h1 className="text-2xl font-bold mb-2">{metadata.title}</h1>
+          <h1 className="text-2xl font-bold mb-2 text-[var(--color-brand)]">{metadata.title}</h1>
         )}
         {metadata?.date && (
           <div className="text-gray-500 text-sm mb-6">{metadata.date}</div>
@@ -47,7 +47,7 @@ export default async function BlogPostPage({
           <Post />
         </article>
       </main>
-      <footer className="border-t border-gray-100 bg-[#1a237e] text-white text-center py-4 mt-8">
+      <footer className="border-t border-gray-100 bg-[var(--color-brand)] text-white text-center py-4 mt-8">
         &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
       </footer>
     </div>
