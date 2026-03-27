@@ -4,7 +4,7 @@ export function AuthorFooter() {
       <hr />
       <h2>About the author</h2>
       <p>
-        I build data systems for banks, fintechs, and energy companies in Africa. This blog is where I share what I’ve learned along the way.
+      I build and scale data systems for organizations across banking, fintech, and energy in Africa. This blog is where I share practical lessons from that journey.
       </p>
       <ul>
         <li>
@@ -15,7 +15,7 @@ export function AuthorFooter() {
         </li>
         <li>
           <strong>Contact for consulting</strong>: Reach out if you need help
-          designing or scaling data systems in Africa or similar markets.{" "}
+          building, scaling data systems in Africa or similar markets.{" "}
           Email me <a href="mailto:talktojindukwentua@gmail.com"><strong>here</strong></a>.
         </li>
       </ul>

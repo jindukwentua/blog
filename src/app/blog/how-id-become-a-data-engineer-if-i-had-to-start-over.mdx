@@ -1,0 +1,197 @@
+export const metadata = {
+  title: "How I’d Become a Data Engineer If I Had to Start Over",
+  date: "2026-03-23",
+  summary:
+    "A practical, no-fluff roadmap I’d follow to break into data engineering today—starting with fundamentals, then building projects that prove you can move and transform data reliably.",
+};
+
+# **How I’d Become a Data Engineer If I Had to Start Over**
+
+Yesterday evening, I went to play football with my guys. Nonso; one of the guys I usually play with pulled me aside and said:
+
+<div
+  style={{
+    margin: "0.5rem 0 1.25rem",
+    padding: "0.95rem 1rem",
+    borderRadius: "12px",
+    background: "linear-gradient(180deg, rgba(26,35,126,0.06) 0%, #ffffff 70%)",
+    border: "1px solid rgba(26,35,126,0.18)",
+    boxShadow: "0 8px 22px rgba(17,24,39,0.06)",
+  }}
+>
+  <div
+    style={{
+      borderLeft: "4px solid #1a237e",
+      paddingLeft: "0.9rem",
+      fontSize: "1.05rem",
+      lineHeight: "1.7",
+      color: "#0f172a",
+      fontWeight: 600,
+    }}
+  >
+    Jindu, I heard you’re a data engineer. I’m thinking of moving into the field, how would you advise
+    on what to learn to land a job?
+  </div>
+</div>
+
+He’s a cybersecurity engineer, so not a beginner by any means. Very technical. Understands systems. Smart guy.
+
+But the question still made me think.
+
+People jump in and start collecting tools: Python, SQL, Spark, Airflow, without really understanding what they’re doing. After a while, it becomes noise. No impact.
+
+So I didn’t want to give him that kind of answer. I wanted something simpler. Something practical.
+
+I asked myself:
+
+> “If I had to do this all over again, what would I do?”
+
+<div
+  style={{
+    border: "1px solid #e5e7eb",
+    borderRadius: "8px",
+    overflow: "hidden",
+    margin: "1.5rem 0",
+  }}
+>
+  <img
+    src="/data-eng.png"
+    alt="A step by step roadmap for becoming a data engineer: Python, SQL, terminal, cloud skills, projects, and using AI responsibly."
+  />
+</div>
+
+
+
+
+## **I Would Start with Python**
+
+I wouldn’t rush. I wouldn’t try to finish Python in two weeks. I’d take my time to really learn how to use it to do things:
+
+<ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+  <li>Writing scripts that actually solve problems</li>
+  <li>Working with files like CSV and JSON</li>
+  <li>Pulling data from APIs (and navigating folders/paths confidently)</li>
+  <li>Automating small, boring tasks</li>
+</ul>
+
+At the most basic level, data engineering is really just this:
+
+> Move data. Transform data. Automate it.
+
+Python helps with most of that.
+
+
+
+## **Then Next Would Be SQL**
+
+Strong fundamentals matter.
+
+Before anything else, I’d make sure I actually understand how databases work, not just writing queries, but things like creating tables properly, what causes locks, how indexes improve performance, and why good table design makes everything easier down the line.
+
+Then I’d focus on how data behaves when you query it:
+
+<ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+  <li>How do you join tables without accidentally duplicating rows?</li>
+  <li>When should you use window functions, and what problems do they actually solve?</li>
+  <li>How do you write queries that still perform when the data gets big?</li>
+</ul>
+
+Because the truth is: things work fine with small data. But at scale, bad queries become very obvious. Things get slow, pipelines fail, and costs go up.
+
+Once you get comfortable at this level, you’re thinking like someone who understands data.
+
+And I wouldn’t stick to just one system. I’d get exposure to PostgreSQL, MySQL, SQL Server—maybe Redshift too.
+
+Because no matter how modern things get…
+
+> If you can’t work with data in a database, you really can’t do much.
+
+
+
+## **I’d Learn the Terminal (Even though it is boring)**
+
+This is one of those things people avoid because it feels boring, but I’ve found that being comfortable with the terminal drastically speeds up your work.
+
+I’d get comfortable with:
+
+<ul style={{ listStyleType: "disc", paddingLeft: "1.5rem", marginBottom: "1.5rem" }}>
+  <li>Chaining commands together to automate workflows</li>
+  <li>Scheduling jobs (cron jobs, background processes)</li>
+  <li>Debugging when scripts fail (logs, permissions, paths)</li>
+  <li>Working with environment variables and configs</li>
+</ul>
+
+
+## **Then I’d Pick Up Cloud But Keep It Practical**
+
+
+At this point, I’d start with AWS. I wouldn’t try to learn 20 services, just the ones that matter early on:
+
+<ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+  <li>S3 (to store data)</li>
+  <li>EC2 (to run things)</li>
+  <li>IAM (to control access)</li>
+  <li>DynamoDB (for NoSQL)</li>
+</ul>
+
+And most importantly, I’d use and connect them. Upload something, process it, save the output.
+
+That flow matters more than memorizing services you’re not using.
+
+
+
+## **Finally, I’d Build Projects (“Skin in the Game”)**
+
+This is the part that actually makes you a data engineer: projects.
+
+I’d build simple pipelines that do the full loop:
+
+<ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+  <li>Pull data from somewhere</li>
+  <li>Clean it</li>
+  <li>Store it</li>
+  <li>Schedule it</li>
+</ul>
+
+And I’d fix the errors when things break because fixing broken pipelines teaches you more than any course ever will.
+
+If you’re looking for practical, project based tutorials, check out <a href="https://www.youtube.com/@CodeWithYu" target="_blank" rel="noopener noreferrer"><strong>@codewithYU</strong></a> on YouTube. His content makes it easier to see how things work in real scenarios, and it’s a solid place to get project ideas.
+
+
+
+## **AI**
+
+Then there’s AI; the elephant in the room.
+
+When used well, it can speed things up a lot. You can debug faster, generate scripts, and unblock yourself quickly when you’re stuck. It’s like having a very fast assistant while you’re learning. It honestly reminds me of JARVIS from Iron Man.
+
+But there’s a catch.
+
+If you rely on it without understanding what’s going on, you’ll fall into the trap of copying and pasting code you don’t actually understand. And that slows your growth more than it helps.
+
+The way to use AI is simple:
+
+<ul style={{ listStyleType: "disc", paddingLeft: "1.5rem" }}>
+  <li>Let it guide you, not replace your thinking</li>
+  <li>Ask it to explain things, not just generate them</li>
+  <li>Always take time to understand the output before moving on</li>
+</ul>
+
+Because in the long run, your value doesn’t come from generating code, it comes from understanding systems. AI should help you get there faster, not skip the process entirely.
+
+
+
+## **Final Thought**
+
+That random conversation after a football game stuck with me, because it reminded me how easy it is to overcomplicate this field.
+
+At its core, data engineering isn’t as complex as people make it seem.
+
+It’s just this:
+
+> Take data from somewhere, make it useful, and move it somewhere else reliably. That’s it, everything else is just tools.
+
+And if you can truly understand that flow, you’re already off to a good start.
+
+<AuthorFooter />
+
