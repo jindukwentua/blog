@@ -90,7 +90,7 @@ const experiences = [
     title: "Data Analyst",
     org: "OnePipe",
     description:
-      "Built credit risk and fraud detection models for fintech partners, improving risk assessment and transaction monitoring through production-ready data science systems.",
+      "Owned customer analytics, reporting, and dashboarding for fintech partners, automating recurring reports where it mattered and supporting teams across the business with consistent, trustworthy data.",
   },
 ];
 
