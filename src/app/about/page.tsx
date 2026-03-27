@@ -318,7 +318,7 @@ export default function About() {
                 and add value on the people and communities around me.
               </p>
               <p>
-                I enjoy staying active by exercising; playing football primarily and following
+                I enjoy staying active by exercising; playing football, running, and following
                 sports, and I value time with my family and friends. You can read more of my
                 thinking on{" "}
                 <Link
