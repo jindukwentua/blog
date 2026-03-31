@@ -11,7 +11,6 @@ type CommonProps = {
 };
 
 type ButtonAsButtonProps = CommonProps & {
-  href?: never;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
   disabled?: boolean;
@@ -78,8 +77,8 @@ export function Button(props: ButtonProps) {
     props.className
   );
 
-  if ("href" in props) {
-    const { href, children, target, rel, ariaLabel, title, style } = props;
+  if ("href" in props && typeof props.href === "string") {
+    const { href, children, target, rel, ariaLabel, title, style } = props as ButtonAsLinkProps;
     return (
       <Link
         href={href}
@@ -95,7 +94,8 @@ export function Button(props: ButtonProps) {
     );
   }
 
-  const { children, type = "button", onClick, disabled, ariaLabel, title, style } = props;
+  const { children, type = "button", onClick, disabled, ariaLabel, title, style } =
+    props as ButtonAsButtonProps;
   return (
     <button
       type={type}
