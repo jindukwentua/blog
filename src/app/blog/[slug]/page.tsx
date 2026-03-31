@@ -34,20 +34,20 @@ export default async function BlogPostPage({
   const { metadata } = mod as { metadata?: { title?: string; date?: string } };
 
   return (
-    <div className="min-h-screen bg-white font-sans flex flex-col">
+    <div className="min-h-screen bg-[var(--background)] flex flex-col">
       <SiteHeader active="blog" />
       <main className="max-w-3xl mx-auto py-8 px-4 flex-1">
         {metadata?.title && (
           <h1 className="text-2xl font-bold mb-2 text-[var(--color-brand)]">{metadata.title}</h1>
         )}
         {metadata?.date && (
-          <div className="text-gray-500 text-sm mb-6">{metadata.date}</div>
+          <div className="text-[var(--muted-2)] text-sm mb-6">{metadata.date}</div>
         )}
-        <article className="bg-white text-black rounded-lg border border-gray-200 shadow-sm p-8 prose">
+        <article className="rounded-lg border border-[var(--border)] shadow-sm p-8 prose bg-[var(--card)] text-[var(--foreground)]">
           <Post />
         </article>
       </main>
-      <footer className="border-t border-gray-100 bg-[var(--color-brand)] text-white text-center py-4 mt-8">
+      <footer className="border-t border-[var(--header-border)] bg-[var(--header-bg)] text-[var(--header-fg)] text-center py-4 mt-8">
         &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
       </footer>
     </div>

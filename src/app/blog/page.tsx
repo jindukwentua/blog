@@ -50,13 +50,13 @@ export default async function BlogList() {
   const posts = await getAllPosts();
 
   return (
-    <div className="min-h-screen bg-white font-sans flex flex-col">
+    <div className="min-h-screen bg-[var(--background)] flex flex-col">
       <SiteHeader active="blog" />
 
       <main className="max-w-3xl mx-auto py-8 px-4 flex-1">
         <section className="mb-6">
           <h1 className="text-2xl font-bold mb-2 text-[var(--color-brand)]">Blog</h1>
-          <p className="text-gray-600">
+          <p className="text-[var(--muted)]">
             All articles in one place &mdash; a mix of data, ML, and engineering topics.
           </p>
         </section>
@@ -80,16 +80,14 @@ export default async function BlogList() {
                   </span>
                 )}
                 {post.date && (
-                  <div className="text-gray-400 text-sm mt-1">
-                    {formatDate(post.date)}
-                  </div>
+                  <div className="text-[var(--muted-2)] text-sm mt-1">{formatDate(post.date)}</div>
                 )}
               </li>
             ))}
           </ul>
         </section>
       </main>
-      <footer className="border-t border-gray-100 bg-[var(--color-brand)] text-white text-center py-4 mt-8">
+      <footer className="border-t border-[var(--header-border)] bg-[var(--header-bg)] text-[var(--header-fg)] text-center py-4 mt-8">
         &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
       </footer>
     </div>

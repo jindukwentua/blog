@@ -10,17 +10,52 @@
 
   --card: #ffffff;
   --border: #e5e7eb;
+  --muted: #4b5563;
+  --muted-2: #6b7280;
+  --surface-1: #ffffff;
+  --surface-2: #f3f4f6;
 
   /* Site-wide brand (header, footer, links, accents) */
   --color-brand: #1a237e;
   --color-brand-hover: #283593;
   --color-brand-accent: #42a5f5;
+  --accent: var(--color-brand);
+  --accent-border: rgba(26, 35, 126, 0.35);
   --color-page: #ffffff;
   --color-text-muted: #6b7280;
+  /* Header / footer */
+  --header-bg: var(--color-brand);
+  --header-border: rgba(255, 255, 255, 0.12);
+  --header-fg: #ffffff;
 }
 
+/* Explicit theme (set by toggle) */
+:root[data-theme="dark"] {
+  --background: #070a12;
+  --foreground: #e8ecff;
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.10);
+  --muted: rgba(232, 236, 255, 0.78);
+  --muted-2: rgba(232, 236, 255, 0.60);
+  --surface-1: rgba(255, 255, 255, 0.06);
+  --surface-2: rgba(255, 255, 255, 0.03);
+
+  /* Brighter brand colors for dark surfaces */
+  --color-brand: #a9b8ff;
+  --color-brand-hover: #c7d2fe;
+  --color-brand-accent: #7dd3fc;
+  --accent: var(--color-brand);
+  --accent-border: rgba(169, 184, 255, 0.28);
+
+  /* Header / footer (darker + more premium in dark mode) */
+  --header-bg: rgba(8, 12, 26, 0.92);
+  --header-border: rgba(255, 255, 255, 0.10);
+  --header-fg: rgba(232, 236, 255, 0.95);
+}
+
+/* Fallback to system setting when no explicit theme */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --background: #0f1115;
     --foreground: #e5e7eb;
     --card: #171a21;
@@ -63,17 +98,6 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #111;
-  letter-spacing: -0.01em;
-}
-
-/* About page: uniform sans (Inter) — overrides editorial serif for headings */
-.about-page,
-.about-page h1,
-.about-page h2,
-.about-page h3,
-.about-page h4 {
   font-family:
     var(--font-sans),
     system-ui,
@@ -84,7 +108,8 @@ h4 {
     Helvetica,
     Arial,
     sans-serif;
-  letter-spacing: normal;
+  color: var(--foreground);
+  letter-spacing: -0.02em;
 }
 
 p {

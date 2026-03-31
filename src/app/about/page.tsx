@@ -5,9 +5,6 @@ import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 
-/** Matches header/footer and primary links site-wide */
-const ACCENT = "#1a237e";
-
 const roles = [
   "Data Scientist",
   "Data Engineer",
@@ -117,15 +114,16 @@ function TechnicalSkillsGrid() {
       {technicalSkillGroups.map(({ category, items }) => (
         <div
           key={category}
-          className="grid grid-cols-1 gap-2 border-b border-gray-200/90 pb-5 last:border-0 last:pb-0 sm:grid-cols-[minmax(8.5rem,11rem)_minmax(0,1fr)] sm:gap-x-8 sm:items-start"
+          className="grid grid-cols-1 gap-2 border-b pb-5 last:border-0 last:pb-0 sm:grid-cols-[minmax(8.5rem,11rem)_minmax(0,1fr)] sm:gap-x-8 sm:items-start"
+          style={{ borderColor: "var(--border)" }}
         >
           <div
             className="text-sm font-bold leading-snug sm:pt-0.5"
-            style={{ color: ACCENT }}
+            style={{ color: "var(--accent)" }}
           >
             {category}:
           </div>
-          <p className="text-sm leading-relaxed text-gray-700">{items}</p>
+          <p className="text-sm leading-relaxed text-[var(--muted)]">{items}</p>
         </div>
       ))}
     </div>
@@ -143,18 +141,25 @@ function AboutSectionCard({
 }) {
   return (
     <section
-      className="mb-8 rounded-xl bg-[#f5f5f5] p-8 md:p-10 shadow-md"
+      className="mb-8 rounded-xl p-8 md:p-10 shadow-md border"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
+        borderColor: "var(--border)",
+        boxShadow:
+          "0 10px 30px rgba(2,6,23,0.10), inset 0 1px 0 rgba(255,255,255,0.06)",
+      }}
       aria-labelledby={id}
     >
       <h2
         id={id}
         className="text-lg font-bold tracking-tight"
-        style={{ color: ACCENT }}
+        style={{ color: "var(--accent)" }}
       >
         {title}
       </h2>
-      <div className="mt-3 border-t-2" style={{ borderColor: ACCENT }} aria-hidden />
-      <div className="mt-6 text-[15px] leading-relaxed text-gray-800">{children}</div>
+      <div className="mt-3 border-t-2" style={{ borderColor: "var(--accent)" }} aria-hidden />
+      <div className="mt-6 text-[15px] leading-relaxed text-[var(--foreground)]">{children}</div>
     </section>
   );
 }
@@ -186,7 +191,7 @@ export default function About() {
   }, [typed, typing, roleIndex]);
 
   return (
-    <div className="about-page min-h-screen bg-white flex flex-col font-sans">
+    <div className="about-page min-h-screen bg-[var(--background)] flex flex-col">
       <SiteHeader active="about" />
 
       <main className="max-w-2xl mx-auto py-8 px-4 flex-1">
@@ -202,7 +207,7 @@ export default function About() {
             />
           </div>
         </div>
-        <div className="max-w-xl mx-auto text-gray-800">
+        <div className="max-w-xl mx-auto text-[var(--foreground)]">
           <h1 className="text-2xl font-bold text-[var(--color-brand)] mb-2">Jindu Kwentua</h1>
           <p className="mb-4 text-[15px] leading-relaxed">
             Hi, I'm <span className="font-semibold">Jindu Kwentua</span>. I am a&nbsp;
@@ -214,20 +219,33 @@ export default function About() {
           <p className="mb-8 text-[15px] leading-relaxed">
             I help organizations turn data into measurable business value responsibly and at scale.
             I’ve worked across fintech, banking, and energy, delivering predictive models, customer
-            insights, and production-grade data pipelines. My focus is simple: turn data into
+            insights, and production data pipelines. My focus is simple: turn data into
             business value.
+          </p>
+          <p className="mb-10 text-[15px] leading-relaxed">
+            <span className="font-semibold">Entrepreneur</span>
+            <br />
+            Beyond my core roles, I enjoy building data-driven products and ventures, applying the
+            same principles I use in enterprise settings to create scalable solutions from the
+            ground up.
           </p>
 
           <AboutSectionCard id="key-skills-heading" title="Key Skills">
-            <p className="mb-4 text-gray-700">
-              Core tools and domains I work in day to day — from pipelines to models to dashboards.
+            <p className="mb-4 text-[var(--muted)]">
+              Core tools and domains I work in day to day, from pipelines to models to dashboards.
             </p>
             <div className="flex flex-wrap gap-2">
               {skillPills.map((skill) => (
                 <span
                   key={skill}
-                  className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-medium bg-white/80 shadow-sm"
-                  style={{ borderColor: ACCENT, color: ACCENT }}
+                  className="inline-flex items-center rounded-full border px-3 py-1.5 text-sm font-semibold shadow-sm transition hover:-translate-y-[1px]"
+                  style={{
+                    borderColor: "var(--accent-border)",
+                    color: "var(--accent)",
+                    background: "var(--surface-1)",
+                    boxShadow:
+                      "0 10px 22px rgba(2,6,23,0.10), inset 0 1px 0 rgba(255,255,255,0.06)",
+                  }}
                 >
                   {skill}
                 </span>
@@ -243,7 +261,7 @@ export default function About() {
             <div className="relative pl-1">
               <div
                 className="absolute left-[11px] top-2 bottom-2 w-0.5 rounded-full"
-                style={{ backgroundColor: ACCENT }}
+                style={{ backgroundColor: "var(--accent)" }}
                 aria-hidden
               />
               <ul className="space-y-10">
@@ -251,16 +269,16 @@ export default function About() {
                   <li key={`${job.org}-${job.dates}`} className="relative pl-8">
                     <span
                       className="absolute left-0 top-0 inline-block rounded-full px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-sm"
-                      style={{ backgroundColor: ACCENT }}
+                      style={{ backgroundColor: "var(--accent)" }}
                     >
                       {job.dates}
                     </span>
                     <div className="pt-9">
-                      <h3 className="text-base font-bold" style={{ color: ACCENT }}>
+                      <h3 className="text-base font-bold" style={{ color: "var(--accent)" }}>
                         {job.title}
                       </h3>
-                      <p className="text-sm italic text-gray-600 mt-0.5">{job.org}</p>
-                      <p className="mt-3 text-gray-800">{job.description}</p>
+                      <p className="text-sm italic text-[var(--muted-2)] mt-0.5">{job.org}</p>
+                      <p className="mt-3 text-[var(--muted)]">{job.description}</p>
                     </div>
                   </li>
                 ))}
@@ -272,27 +290,27 @@ export default function About() {
             <div className="relative pl-1">
               <div
                 className="absolute left-[11px] top-2 bottom-2 w-0.5 rounded-full"
-                style={{ backgroundColor: ACCENT }}
+                style={{ backgroundColor: "var(--accent)" }}
                 aria-hidden
               />
               <ul className="space-y-10">
                 {educationItems.map((item) => (
                   <li key={item.title} className="relative pl-8">
-                    <p className="text-xs font-bold uppercase tracking-wide text-gray-900 mb-1">
+                    <p className="text-xs font-bold uppercase tracking-wide text-[var(--muted)] mb-1">
                       {item.label}
                     </p>
                     <span
                       className="absolute left-0 top-7 inline-block rounded-full px-2.5 py-1 text-[11px] font-bold text-white shadow-sm"
-                      style={{ backgroundColor: ACCENT }}
+                      style={{ backgroundColor: "var(--accent)" }}
                     >
                       {item.badge}
                     </span>
                     <div className="pt-10">
-                      <h3 className="text-base font-bold" style={{ color: ACCENT }}>
+                      <h3 className="text-base font-bold" style={{ color: "var(--accent)" }}>
                         {item.title}
                       </h3>
-                      <p className="text-sm italic text-gray-600 mt-0.5">{item.subtitle}</p>
-                      <p className="mt-2 text-gray-700">{item.detail}</p>
+                      <p className="text-sm italic text-[var(--muted-2)] mt-0.5">{item.subtitle}</p>
+                      <p className="mt-2 text-[var(--muted)]">{item.detail}</p>
                     </div>
                   </li>
                 ))}
@@ -301,18 +319,25 @@ export default function About() {
           </AboutSectionCard>
 
           <aside
-            className="mb-8 rounded-xl bg-[#f5f5f5] p-8 md:p-10 shadow-md"
+            className="mb-8 rounded-xl p-8 md:p-10 shadow-md border"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
+              borderColor: "var(--border)",
+              boxShadow:
+                "0 10px 30px rgba(2,6,23,0.10), inset 0 1px 0 rgba(255,255,255,0.06)",
+            }}
             aria-labelledby="personal-interests-heading"
           >
             <h2
               id="personal-interests-heading"
               className="text-lg font-bold tracking-tight"
-              style={{ color: ACCENT }}
+              style={{ color: "var(--accent)" }}
             >
               Personal Interests
             </h2>
-            <div className="mt-3 border-t-2" style={{ borderColor: ACCENT }} aria-hidden />
-            <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-gray-800">
+            <div className="mt-3 border-t-2" style={{ borderColor: "var(--accent)" }} aria-hidden />
+            <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-[var(--foreground)]">
               <p>
                 As a husband and a family person, I try to use my skills to have a positive impact
                 and add value on the people and communities around me.
@@ -324,7 +349,7 @@ export default function About() {
                 <Link
                   href="https://www.jindukwentua.com/blog"
                   className="font-semibold underline-offset-2 hover:underline"
-                  style={{ color: ACCENT }}
+                  style={{ color: "var(--accent)" }}
                 >
                   the blog
                 </Link>
@@ -332,7 +357,7 @@ export default function About() {
                 <a
                   href="https://www.linkedin.com/in/jindukwentua/"
                   className="font-semibold underline-offset-2 hover:underline"
-                  style={{ color: ACCENT }}
+                  style={{ color: "var(--accent)" }}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -342,7 +367,7 @@ export default function About() {
                 <a
                   href="mailto:kwentuajindu@gmail.com"
                   className="font-semibold underline-offset-2 hover:underline"
-                  style={{ color: ACCENT }}
+                  style={{ color: "var(--accent)" }}
                 >
                   email
                 </a>
@@ -380,7 +405,7 @@ export default function About() {
           </div>
         </div>
       </main>
-      <footer className="border-t border-gray-100 bg-[var(--color-brand)] text-white text-center py-4 mt-8">
+      <footer className="border-t border-[var(--header-border)] bg-[var(--header-bg)] text-[var(--header-fg)] text-center py-4 mt-8">
         &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
       </footer>
     </div>
