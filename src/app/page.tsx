@@ -87,7 +87,7 @@ export default async function Home() {
                   Hi, I&apos;m Jindu Kwentua.
                 </h1>
                   <p className="text-[var(--muted)] mt-4 leading-relaxed">
-                  I am an enterpreneur and data professional. I work at the intersection of data analytics, data science, and data engineering, helping businesses turn data into measurable business value.
+                  I am an enterpreneur, consultant and data professional. I work at the intersection of technology, data analytics, data science, and data engineering, helping businesses turn data into measurable business value.
                 </p>
                 <div className="flex flex-wrap gap-3 mt-6">
                   <Button href="/blog" variant="primary">
