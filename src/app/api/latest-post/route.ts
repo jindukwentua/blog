@@ -22,19 +22,29 @@ async function getLatestPost() {
     return null;
   }
 
-  const posts = await Promise.all(
-    fileNames.map(async (fileName) => {
-      const slug = fileName.replace(/\.mdx$/, "");
-      const mod = await import(`@/app/blog/${slug}.mdx`);
-      const { metadata } = mod as { metadata?: PostMetadata };
-
-      return {
-        slug,
-        title: metadata?.title ?? slug,
-        date: metadata?.date ?? "",
-        summary: metadata?.summary ?? "",
-      };
-    })
+  const posts = (
+    await Promise.all(
+      fileNames.map(async (fileName) => {
+        const slug = fileName.replace(/\.mdx$/, "");
+        try {
+          const mod = await import(`@/app/blog/${slug}.mdx`);
+          const { metadata } = mod as { metadata?: PostMetadata };
+          return {
+            slug,
+            title: metadata?.title ?? slug,
+            date: metadata?.date ?? "",
+            summary: metadata?.summary ?? "",
+          };
+        } catch {
+          console.warn(
+            `[api/latest-post] Skipped "${slug}" (MDX module failed to load). Restart "next dev" if this post is new.`
+          );
+          return null;
+        }
+      })
+    )
+  ).filter(
+    (p): p is { slug: string; title: string; date: string; summary: string } => p !== null
   );
 
   posts.sort((a, b) => (a.date < b.date ? 1 : -1));

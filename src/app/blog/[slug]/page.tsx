@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import type { ReactElement } from "react";
 import type { MDXComponents } from "mdx/types";
+import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
 
 const postsDirectory = path.join(process.cwd(), "src/app/blog");
@@ -28,6 +29,10 @@ export default async function BlogPostPage({
   params: Params;
 }) {
   const { slug } = await params;
+  const mdxFile = path.join(postsDirectory, `${slug}.mdx`);
+  if (!fs.existsSync(mdxFile)) {
+    notFound();
+  }
   const mod = await import(`@/app/blog/${slug}.mdx`);
 
   const Post = mod.default as (props: { components?: MDXComponents }) => ReactElement;

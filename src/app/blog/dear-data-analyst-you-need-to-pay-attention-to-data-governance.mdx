@@ -1,0 +1,100 @@
+export const metadata = {
+  title: "Dear Data Analyst, You Need to Pay Attention to Data Governance",
+  date: "2026-04-20",
+  summary:
+    "Back from my wedding in Abuja, the first meeting hit me with the same old question: why don’t these numbers match? Here’s why governance matters more than another dashboard.",
+};
+
+# **Dear Data Analyst, You Need to Pay Attention to Data Governance**
+
+It’s been two weeks since my last article.
+
+I travelled to Abuja to get married to the love of my life. For a few days, everything else faded into the background. No dashboards to check, no pipelines to monitor, no last minute requests for numbers. Just a clear sense of what mattered and the kind of decisions you don’t second guess.
+
+Then I got back to work.
+
+First meeting of the day, and someone asked a question I’ve heard too many times:
+
+“Why are these numbers different?”
+
+Same company, same product, same reporting window, yet the answers didn’t line up. Growth had one figure, product had another, and finance presented something else entirely. Each team explained how they arrived at their numbers, and to be fair, every explanation made sense.
+
+But they didn’t agree.
+
+<div
+  style={{
+    border: "1px solid #e5e7eb",
+    borderRadius: "8px",
+    overflow: "hidden",
+    margin: "1.5rem 0",
+  }}
+>
+  <img
+    src="/data-governance-cartoon.png"
+    alt="Cartoon: an analyst on the phone, tired. Caption reads: Yes we track that metric. Why is it different? It depends on who you ask."
+  />
+</div>
+
+If you’ve spent enough time working with data, you know this isn’t unusual. It’s a pattern.
+
+Most organizations don’t fail because they lack data. They struggle because they never made clear decisions about what that data should represent. So teams move quickly, solving for immediate needs. Dashboards get built, queries get written, and metrics get defined on the fly.
+
+At first, the differences are small: slightly different filters, assumptions, or time windows. Over time, those small differences compound until the same metric produces completely different answers depending on who you ask.
+
+This is where data governance becomes necessary.
+
+At its core, data governance is about ensuring that key metrics are defined once, agreed upon, and used consistently across the organization. It is less about control and more about alignment.
+
+In practice, this is where many teams fall short.
+
+The issue is rarely technical.
+
+The data exists. Pipelines run as expected. Dashboards refresh without errors.
+
+But if you ask different teams to define something as fundamental as revenue or active users, you often get different answers. Each definition reflects a valid perspective, but without standardization, those perspectives create inconsistency.
+
+The impact shows up in day-to-day operations.
+
+Meetings take longer because numbers need to be explained before they can be used. Analysts spend time reconciling discrepancies instead of producing insights. Stakeholders begin to question the reliability of reports.
+
+Eventually, decisions drift away from data, not because data is unavailable, but because it is not trusted.
+
+Effective data governance addresses this by forcing clarity.
+
+It requires teams to agree on a few critical points: what each key metric represents, which datasets serve as the source of truth, and who is responsible for maintaining them.
+
+Once those decisions are made, much of the friction disappears. Conversations shift away from validating numbers and toward acting on them.
+
+One part of governance that is often overlooked is documentation.
+
+Even when teams agree on definitions, that knowledge tends to live in conversations, Slack threads, or in the heads of a few individuals. Over time, people leave, teams change, and context gets lost.
+
+Without documentation, governance does not scale.
+
+Good documentation makes decisions durable. It ensures that metric definitions, data sources, and assumptions are written down, easy to find, and easy to understand. It reduces dependency on specific individuals and allows new team members to get up to speed without guesswork.
+
+More importantly, it removes ambiguity. When a question comes up about a number, the answer should not depend on who you ask, but on what has already been defined and documented.
+
+A common mistake is trying to solve this problem with tools.
+
+Data catalogs, lineage systems, and access controls all have their place. But when introduced before alignment, they tend to formalize confusion rather than resolve it. If definitions are unclear, no amount of tooling will fix the problem.
+
+Governance starts with decisions, and documentation is how those decisions persist.
+
+The most practical way to approach it is to start small.
+
+Identify the metrics that matter most to the business. Define them clearly, document the logic behind them, and ensure that all teams operate from the same definitions. Assign ownership so there is accountability when changes are needed or issues arise.
+
+Even this limited effort can significantly reduce inconsistencies.
+
+Stepping away recently reinforced something that tends to get overlooked in data work.
+
+When important things are left undefined, they don’t remain neutral. They become points of friction later.
+
+The teams that operate effectively are not necessarily the ones with the most advanced tooling. They are the ones that take the time to align early, document those decisions, and maintain that alignment as they grow.
+
+Coming back to work, it became clear again that most challenges in analytics are not driven by data volume or system complexity.
+
+They come from decisions that were never made, or decisions that were made but never written down.
+
+<AuthorFooter />

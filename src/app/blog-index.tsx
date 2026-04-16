@@ -17,19 +17,24 @@ async function getPosts(): Promise<PostMeta[]> {
     .readdirSync(postsDirectory)
     .filter((f) => f.endsWith(".mdx"));
 
-  const posts = await Promise.all(
-    fileNames.map(async (fileName) => {
-      const slug = fileName.replace(/\.mdx$/, "");
-      const mod = await import(`@/app/blog/${slug}.mdx`);
-      const { metadata } = mod as { metadata?: { title?: string; date?: string } };
-
-      return {
-        slug,
-        title: metadata?.title ?? slug,
-        date: metadata?.date ?? "",
-      };
-    })
-  );
+  const posts = (
+    await Promise.all(
+      fileNames.map(async (fileName) => {
+        const slug = fileName.replace(/\.mdx$/, "");
+        try {
+          const mod = await import(`@/app/blog/${slug}.mdx`);
+          const { metadata } = mod as { metadata?: { title?: string; date?: string } };
+          return {
+            slug,
+            title: metadata?.title ?? slug,
+            date: metadata?.date ?? "",
+          };
+        } catch {
+          return null;
+        }
+      })
+    )
+  ).filter((p): p is PostMeta => p !== null);
 
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }

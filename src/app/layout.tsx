@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   description:
     "Data engineering, analytics, and machine learning in real-world systems. Stories from building data products in Africa.",
   metadataBase: new URL("https://jindukwentua.com"),
+  icons: {
+    apple: [{ url: "/profile.jpg", type: "image/jpeg" }],
+  },
   openGraph: {
     title: "Jindu Kwentua",
     description:
