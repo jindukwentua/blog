@@ -4,7 +4,7 @@ export function AuthorFooter() {
       <hr />
       <h2>About the author</h2>
       <p>
-      I build and scale data systems for organizations across banking, fintech, and energy in Africa. This blog is where I share practical lessons from that journey.
+      I build and scale data systems for organizations across banking, fintech, and energy. This blog is where I share practical lessons from that journey.
       </p>
       <ul>
         <li>
