@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { CONTACT_EMAIL, CONTACT_LINKEDIN_HREF, CONTACT_TWITTER_HREF } from "@/lib/contact";
 
 const roles = [
   "Data Scientist",
@@ -194,42 +196,70 @@ export default function About() {
     <div className="about-page min-h-screen bg-[var(--background)] flex flex-col">
       <SiteHeader active="about" />
 
-      <main className="max-w-2xl mx-auto py-8 px-4 flex-1">
-        <div className="flex flex-col items-center">
-          <div className="w-32 h-32 mb-4 flex items-center justify-center overflow-hidden rounded-full border-4 border-white shadow-md bg-white">
-            <Image
-              src="/profile.jpg"
-              alt="Jindu Kwentua"
-              width={128}
-              height={128}
-              className="object-cover w-full h-full"
-              priority
-            />
-          </div>
-        </div>
-        <div className="max-w-xl mx-auto text-[var(--foreground)]">
-          <h1 className="text-2xl font-bold text-[var(--color-brand)] mb-2">Jindu Kwentua</h1>
-          <p className="mb-4 text-[15px] leading-relaxed">
-            Hi, I'm <span className="font-semibold">Jindu Kwentua</span>. I am a&nbsp;
-            <span className="font-semibold text-[var(--color-brand)] transition-all duration-300 min-w-[180px] inline-block">
-              {typed}
-              <span className="animate-pulse">|</span>
-            </span>
-          </p>
-          <p className="mb-8 text-[15px] leading-relaxed">
-            I help organizations turn data into measurable business value responsibly and at scale.
-            I’ve worked across fintech, banking, and energy, delivering predictive models, customer
-            insights, and production data pipelines. My focus is simple: turn data into
-            business value.
-          </p>
-          <p className="mb-10 text-[15px] leading-relaxed">
-            <span className="font-semibold">Entrepreneur</span>
-            <br />
-            Beyond my core roles, I enjoy building data-driven products and ventures, applying the
-            same principles I use in enterprise settings to create scalable solutions from the
-            ground up.
-          </p>
+      <main className="mx-auto max-w-3xl flex-1 px-4 py-8 text-[var(--foreground)] sm:px-6">
+        <section
+          className="mb-8 overflow-hidden rounded-xl border shadow-md"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
+            borderColor: "var(--border)",
+            boxShadow:
+              "0 10px 30px rgba(2,6,23,0.10), inset 0 1px 0 rgba(255,255,255,0.06)",
+          }}
+          aria-labelledby="about-intro-heading"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-2 lg:items-stretch">
+            <figure className="relative aspect-[4/3] w-full bg-[var(--surface-2)] sm:aspect-[3/2] lg:aspect-auto lg:h-full lg:min-h-[18rem]">
+              <Image
+                src="/jindu-portrait.png"
+                alt="Jindu Kwentua, data scientist and engineer, in business attire at an office desk."
+                fill
+                priority
+                className="object-cover object-[center_24%]"
+                sizes="(max-width: 1024px) 100vw, 480px"
+              />
+            </figure>
 
+            <div className="flex flex-col justify-center border-t border-[var(--border)] p-8 md:p-10 lg:border-l lg:border-t-0">
+              <p
+                id="about-intro-heading"
+                className="text-[11px] font-bold uppercase tracking-[0.22em] text-[var(--muted-2)]"
+              >
+                Introduction
+              </p>
+              <div className="mt-3 max-w-[3rem] border-t-2" style={{ borderColor: "var(--accent)" }} aria-hidden />
+              <div className="mt-6 space-y-5 text-[15px] leading-relaxed">
+                <h1 className="text-2xl font-bold tracking-tight text-[var(--color-brand)] sm:text-3xl">
+                  Jindu Kwentua
+                </h1>
+                <p>
+                  Hi, I&apos;m <span className="font-semibold">Jindu Kwentua</span>. I am a&nbsp;
+                  <span className="font-semibold text-[var(--color-brand)] transition-all duration-300 min-w-[11rem] inline-block sm:min-w-[12rem]">
+                    {typed}
+                    <span className="animate-pulse">|</span>
+                  </span>
+                </p>
+                <p className="text-[var(--muted)]">
+                  I help organizations turn data into measurable business value responsibly and at scale.
+                  I&apos;ve worked across fintech, banking, and energy, delivering predictive models, customer
+                  insights, and production data pipelines. My focus is simple: turn data into
+                  business value.
+                </p>
+                <p className="text-[var(--muted)]">
+                  <span className="font-semibold text-[var(--foreground)]">Entrepreneur</span>
+                  <span>
+                    {" "}
+                    — Beyond my core roles, I enjoy building data-driven products and ventures, applying the
+                    same principles I use in enterprise settings to create scalable solutions from the
+                    ground up.
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div>
           <AboutSectionCard id="key-skills-heading" title="Key Skills">
             <p className="mb-4 text-[var(--muted)]">
               Core tools and domains I work in day to day, from pipelines to models to dashboards.
@@ -318,96 +348,207 @@ export default function About() {
             </div>
           </AboutSectionCard>
 
-          <aside
-            className="mb-8 rounded-xl p-8 md:p-10 shadow-md border"
+          <section
+            className="about-bottom-panel mb-8 scroll-mt-24 overflow-hidden rounded-2xl border shadow-[0_24px_60px_-28px_rgba(15,23,42,0.18)]"
             style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%)",
               borderColor: "var(--border)",
+              background:
+                "linear-gradient(145deg, var(--surface-1) 0%, color-mix(in srgb, var(--surface-2) 88%, var(--surface-1)) 48%, var(--surface-1) 100%)",
               boxShadow:
-                "0 10px 30px rgba(2,6,23,0.10), inset 0 1px 0 rgba(255,255,255,0.06)",
+                "0 24px 60px -28px rgba(15, 23, 42, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.55)",
             }}
-            aria-labelledby="personal-interests-heading"
+            aria-label="Personal interests and contact"
           >
-            <h2
-              id="personal-interests-heading"
-              className="text-lg font-bold tracking-tight"
-              style={{ color: "var(--accent)" }}
-            >
-              Personal Interests
-            </h2>
-            <div className="mt-3 border-t-2" style={{ borderColor: "var(--accent)" }} aria-hidden />
-            <div className="mt-5 space-y-4 text-[15px] leading-relaxed text-[var(--foreground)]">
-              <p>
-                As a husband and a family person, I try to use my skills to have a positive impact
-                and add value on the people and communities around me.
-              </p>
-              <p>
-                I enjoy staying active by exercising; playing football, running, and following
-                sports, and I value time with my family and friends. You can read more of my
-                thinking on{" "}
-                <Link
-                  href="https://www.jindukwentua.com/blog"
-                  className="font-semibold underline-offset-2 hover:underline"
-                  style={{ color: "var(--accent)" }}
-                >
-                  the blog
-                </Link>
-                , connect on{" "}
-                <a
-                  href="https://www.linkedin.com/in/jindukwentua/"
-                  className="font-semibold underline-offset-2 hover:underline"
-                  style={{ color: "var(--accent)" }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  LinkedIn
-                </a>
-                , or reach out by{" "}
-                <a
-                  href="mailto:kwentuajindu@gmail.com"
-                  className="font-semibold underline-offset-2 hover:underline"
-                  style={{ color: "var(--accent)" }}
-                >
-                  email
-                </a>
-                .
-              </p>
-            </div>
-          </aside>
+            <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_17.5rem] xl:grid-cols-[minmax(0,1fr)_20rem]">
+              <aside
+                className="border-b border-[var(--border)] p-8 md:p-10 lg:border-b-0 lg:border-r"
+                aria-labelledby="personal-interests-heading"
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className="mt-1 hidden h-[4.5rem] w-1 shrink-0 rounded-full sm:block"
+                    style={{
+                      background: "linear-gradient(180deg, var(--color-brand), var(--color-brand-accent))",
+                    }}
+                    aria-hidden
+                  />
+                  <div className="min-w-0 flex-1">
+                    <h2
+                      id="personal-interests-heading"
+                      className="text-xl font-bold tracking-tight text-[var(--foreground)] sm:text-2xl"
+                    >
+                      Personal Interests
+                    </h2>
+                    <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted-2)]">
+                      Outside the desk
+                    </p>
+                    <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-[var(--muted)]">
+                      <p className="text-[var(--foreground)]">
+                        As a husband and a family person, I try to use my skills to have a positive impact
+                        and add value on the people and communities around me.
+                      </p>
+                      <p>
+                        I enjoy staying active by exercising; playing football, running, and following
+                        sports, and I value time with my family and friends. You can read more of my
+                        thinking on{" "}
+                        <Link
+                          href="https://www.jindukwentua.com/blog"
+                          className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline"
+                        >
+                          the blog
+                        </Link>
+                        , connect on{" "}
+                        <a
+                          href={CONTACT_LINKEDIN_HREF}
+                          className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          LinkedIn
+                        </a>
+                        , or reach out by{" "}
+                        <a
+                          href={`mailto:${CONTACT_EMAIL}`}
+                          className="font-semibold text-[var(--color-brand)] underline-offset-2 hover:underline"
+                        >
+                          email
+                        </a>
+                        .
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </aside>
 
-          <div className="mb-6">
-            <h2 className="text-lg font-semibold text-[var(--color-brand)] mb-2">Contact</h2>
-            <div className="flex gap-6 items-center ml-2 mt-2">
-              <a href="mailto:kwentuajindu@gmail.com" title="Email" target="_blank" rel="noopener noreferrer">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="24" height="24" rx="4" fill="#EA4335" />
-                  <path d="M6 8l6 5 6-5" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <rect x="6" y="8" width="12" height="8" rx="2" fill="#fff" />
-                  <path d="M6 8l6 5 6-5" stroke="#EA4335" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </a>
-              <a href="https://www.linkedin.com/in/jindukwentua/" title="LinkedIn" target="_blank" rel="noopener noreferrer">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="24" height="24" rx="4" fill="#0A66C2" />
-                  <path d="M7.5 8.5v7" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" />
-                  <circle cx="7.5" cy="6.5" r="1" fill="#fff" />
-                  <path d="M10.5 11.5v4h2v-2c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v2h2v-4c0-1.1-.9-2-2-2s-2 .9-2 2z" stroke="#fff" strokeWidth="1.5" strokeLinejoin="round" />
-                </svg>
-              </a>
-              <a href="https://twitter.com/jxndu" title="Twitter" target="_blank" rel="noopener noreferrer">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="24" height="24" rx="4" fill="#1DA1F2" />
-                  <path d="M19 7.5a6.5 6.5 0 01-1.89.52A3.28 3.28 0 0018.5 6a6.56 6.56 0 01-2.08.8A3.28 3.28 0 0012 9.5c0 .26.03.52.08.76A9.32 9.32 0 015 7.1a3.28 3.28 0 001.01 4.37c-.28-.01-.54-.08-.77-.2v.02c0 1.54 1.1 2.83 2.57 3.12-.27.07-.56.1-.85.04.24.75.93 1.3 1.75 1.32A6.6 6.6 0 015 17.5c.41 0 .81-.02 1.2-.07A9.29 9.29 0 0012 19c5.52 0 8.54-4.57 8.54-8.54 0-.13 0-.26-.01-.39A6.1 6.1 0 0021 8.5a6.36 6.36 0 01-1.82.5z" fill="#fff" />
-                </svg>
-              </a>
+              <div
+                id="contact"
+                role="region"
+                aria-labelledby="contact-heading"
+                className="relative flex flex-col gap-5 p-8 md:p-10"
+                style={{
+                  background:
+                    "linear-gradient(160deg, color-mix(in srgb, var(--surface-2) 78%, transparent), color-mix(in srgb, var(--surface-1) 35%, var(--surface-2)))",
+                }}
+              >
+                <div
+                  className="pointer-events-none absolute inset-y-8 left-0 hidden w-px lg:block"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, transparent, color-mix(in srgb, var(--color-brand-accent) 45%, transparent), transparent)",
+                  }}
+                  aria-hidden
+                />
+                <h2
+                  id="contact-heading"
+                  className="text-lg font-bold tracking-tight text-[var(--foreground)] sm:text-xl"
+                >
+                  Connect
+                </h2>
+                <nav aria-label="Social and email">
+                  <ul className="flex flex-col gap-2">
+                    <li>
+                      <a
+                        href={`mailto:${CONTACT_EMAIL}`}
+                        className="group flex w-full items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-1)] px-3.5 py-3 shadow-sm transition hover:border-[var(--color-brand-accent)]/45 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-2)]"
+                      >
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--surface-2)_90%,transparent)] text-[#EA4335]">
+                          <svg className="h-[1.15rem] w-[1.15rem]" viewBox="0 0 24 24" fill="none" aria-hidden>
+                            <path
+                              d="M4 6h16v12H4z"
+                              stroke="currentColor"
+                              strokeWidth="1.6"
+                              strokeLinejoin="round"
+                            />
+                            <path
+                              d="m4 8 8 6 8-6"
+                              stroke="currentColor"
+                              strokeWidth="1.6"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        </span>
+                        <span className="min-w-0 flex-1 text-left">
+                          <span className="block text-sm font-semibold text-[var(--foreground)]">Email</span>
+                          <span className="mt-0.5 block truncate text-xs text-[var(--muted-2)]">{CONTACT_EMAIL}</span>
+                        </span>
+                        <span className="shrink-0 text-sm text-[var(--muted-2)] transition group-hover:translate-x-0.5 group-hover:text-[var(--color-brand)]" aria-hidden>
+                          →
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href={CONTACT_LINKEDIN_HREF}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex w-full items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-1)] px-3.5 py-3 shadow-sm transition hover:border-[var(--color-brand-accent)]/45 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-2)]"
+                      >
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--surface-2)_90%,transparent)] text-[#0A66C2]">
+                          <svg
+                            className="h-[1.15rem] w-[1.15rem]"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.65"
+                            aria-hidden
+                          >
+                            <path
+                              d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-12h4v2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                            <circle cx="6" cy="6" r="2.25" />
+                            <path d="M6 10v8" strokeLinecap="round" />
+                          </svg>
+                        </span>
+                        <span className="min-w-0 flex-1 text-left">
+                          <span className="block text-sm font-semibold text-[var(--foreground)]">LinkedIn</span>
+                          <span className="mt-0.5 block truncate text-xs text-[var(--muted-2)]">in/jindukwentua</span>
+                        </span>
+                        <span className="shrink-0 text-sm text-[var(--muted-2)] transition group-hover:translate-x-0.5 group-hover:text-[var(--color-brand)]" aria-hidden>
+                          ↗
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href={CONTACT_TWITTER_HREF}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex w-full items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--surface-1)] px-3.5 py-3 shadow-sm transition hover:border-[var(--color-brand-accent)]/45 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-2)]"
+                      >
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[color-mix(in_srgb,var(--surface-2)_90%,transparent)] text-[var(--foreground)]">
+                          <svg className="h-[1rem] w-[1rem]" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                          </svg>
+                        </span>
+                        <span className="min-w-0 flex-1 text-left">
+                          <span className="block text-sm font-semibold text-[var(--foreground)]">X</span>
+                          <span className="mt-0.5 block truncate text-xs text-[var(--muted-2)]">@jxndu</span>
+                        </span>
+                        <span className="shrink-0 text-sm text-[var(--muted-2)] transition group-hover:translate-x-0.5 group-hover:text-[var(--color-brand)]" aria-hidden>
+                          ↗
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <Link
+                  href="/contact"
+                  className="group flex w-full items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-gradient-to-br from-[var(--color-brand)] to-[var(--color-brand-accent)] px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-brand-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-2)]"
+                >
+                  Contact page
+                  <span className="transition-transform group-hover:translate-x-0.5" aria-hidden>
+                    →
+                  </span>
+                </Link>
+              </div>
             </div>
-          </div>
+          </section>
         </div>
       </main>
-      <footer className="border-t border-[var(--header-border)] bg-[var(--header-bg)] text-[var(--header-fg)] text-center py-4 mt-8">
-        &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
-      </footer>
+      <SiteFooter className="mt-8" />
     </div>
   );
 }

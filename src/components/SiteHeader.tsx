@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-type NavKey = "home" | "about" | "blog";
+type NavKey = "home" | "about" | "blog" | "contact";
 
 type SiteHeaderProps = {
   active?: NavKey;
@@ -35,6 +35,9 @@ export function SiteHeader({ active }: SiteHeaderProps) {
         </Link>
         <Link href="/blog" className={linkClasses("blog")}>
           Blog
+        </Link>
+        <Link href="/contact" className={linkClasses("contact")}>
+          Contact
         </Link>
         <ThemeToggle />
       </nav>

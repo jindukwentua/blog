@@ -2,7 +2,9 @@ import fs from "fs";
 import path from "path";
 import Image from "next/image";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { Button } from "@/components/Button";
+import { IndustryExpertise } from "@/components/IndustryExpertise";
 
 type PostMeta = {
   date: string;
@@ -94,13 +96,16 @@ export default async function Home() {
                   Hi, I&apos;m Jindu Kwentua.
                 </h1>
                   <p className="text-[var(--muted)] mt-4 leading-relaxed">
-                  I am an enterpreneur, consultant and data professional. I work at the intersection of technology, data analytics, data science, and data engineering, helping businesses turn data into measurable business value.
+                  I am an entrepreneur, consultant and data professional. I work at the intersection of technology, data analytics, data science, and data engineering, helping businesses turn data into measurable business value.
                 </p>
                 <div className="flex flex-wrap gap-3 mt-6">
                   <Button href="/blog" variant="primary">
                     Read my blog
                   </Button>
-                  <Button href="/about" variant="secondary">
+                  <Button href="/contact" variant="secondary">
+                    Get in touch
+                  </Button>
+                  <Button href="/about" variant="ghost">
                     About me
                   </Button>
                 </div>
@@ -136,10 +141,10 @@ export default async function Home() {
             </div>
           </section>
         </div>
+
+        <IndustryExpertise />
       </main>
-      <footer className="border-t border-[var(--header-border)] bg-[var(--header-bg)] text-[var(--header-fg)] text-center py-4">
-        &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

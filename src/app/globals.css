@@ -27,6 +27,26 @@
   --header-bg: var(--color-brand);
   --header-border: rgba(255, 255, 255, 0.12);
   --header-fg: #ffffff;
+
+  /* Home — industry expertise (aurora / jewel tones on brand indigo) */
+  --expertise-bg: linear-gradient(
+    132deg,
+    #070b18 0%,
+    #0f172a 14%,
+    #1e3a8a 36%,
+    #5b21b6 58%,
+    #0f766e 78%,
+    #312e81 100%
+  );
+  --expertise-overlay: radial-gradient(ellipse 120% 85% at 0% 100%, rgba(244, 114, 182, 0.28) 0%, transparent 52%),
+    radial-gradient(ellipse 90% 70% at 100% 0%, rgba(34, 211, 238, 0.35) 0%, transparent 48%),
+    radial-gradient(ellipse 55% 50% at 50% 20%, rgba(167, 139, 250, 0.22) 0%, transparent 58%),
+    radial-gradient(ellipse 80% 60% at 80% 100%, rgba(99, 102, 241, 0.2) 0%, transparent 45%);
+  --expertise-card-border: rgba(255, 255, 255, 0.32);
+  --expertise-card-bg: rgba(255, 255, 255, 0.1);
+  --expertise-card-glow: rgba(167, 139, 250, 0.15);
+  --expertise-icon-well-border: rgba(255, 255, 255, 0.38);
+  --expertise-icon-well-bg: linear-gradient(145deg, rgba(34, 211, 238, 0.28), rgba(167, 139, 250, 0.32));
 }
 
 /* Explicit theme (set by toggle) */
@@ -51,6 +71,25 @@
   --header-bg: rgba(8, 12, 26, 0.92);
   --header-border: rgba(255, 255, 255, 0.10);
   --header-fg: rgba(232, 236, 255, 0.95);
+
+  --expertise-bg: linear-gradient(
+    132deg,
+    #020308 0%,
+    #0c1222 18%,
+    #1e1b4b 40%,
+    #4c1d95 62%,
+    #134e4a 82%,
+    #1e1b4b 100%
+  );
+  --expertise-overlay: radial-gradient(ellipse 120% 90% at 0% 100%, rgba(244, 114, 182, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse 95% 75% at 100% 0%, rgba(34, 211, 238, 0.22) 0%, transparent 46%),
+    radial-gradient(ellipse 60% 55% at 45% 15%, rgba(167, 139, 250, 0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 95%, rgba(99, 102, 241, 0.16) 0%, transparent 48%);
+  --expertise-card-border: rgba(255, 255, 255, 0.16);
+  --expertise-card-bg: rgba(255, 255, 255, 0.05);
+  --expertise-card-glow: rgba(167, 139, 250, 0.12);
+  --expertise-icon-well-border: rgba(255, 255, 255, 0.22);
+  --expertise-icon-well-bg: linear-gradient(145deg, rgba(34, 211, 238, 0.18), rgba(192, 132, 252, 0.22));
 }
 
 /* Fallback to system setting when no explicit theme */
@@ -60,7 +99,201 @@
     --foreground: #e5e7eb;
     --card: #171a21;
     --border: #2a2f3a;
+
+    --expertise-bg: linear-gradient(
+      132deg,
+      #020308 0%,
+      #0c1222 18%,
+      #1e1b4b 40%,
+      #4c1d95 62%,
+      #134e4a 82%,
+      #1e1b4b 100%
+    );
+    --expertise-overlay: radial-gradient(ellipse 120% 90% at 0% 100%, rgba(244, 114, 182, 0.18) 0%, transparent 50%),
+      radial-gradient(ellipse 95% 75% at 100% 0%, rgba(34, 211, 238, 0.22) 0%, transparent 46%),
+      radial-gradient(ellipse 60% 55% at 45% 15%, rgba(167, 139, 250, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 70% 50% at 85% 95%, rgba(99, 102, 241, 0.16) 0%, transparent 48%);
+    --expertise-card-border: rgba(255, 255, 255, 0.16);
+    --expertise-card-bg: rgba(255, 255, 255, 0.05);
+    --expertise-card-glow: rgba(167, 139, 250, 0.12);
+    --expertise-icon-well-border: rgba(255, 255, 255, 0.22);
+    --expertise-icon-well-bg: linear-gradient(145deg, rgba(34, 211, 238, 0.18), rgba(192, 132, 252, 0.22));
   }
+}
+
+/* -----------------------------
+   Home — industry expertise band
+----------------------------- */
+
+/* Unlayered + scoped so we always beat global h1–h4 { color } and @layer utilities. */
+.industry-expertise {
+  isolation: isolate;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  /* Fallback if custom props fail */
+  background: linear-gradient(
+    132deg,
+    #070b18 0%,
+    #0f172a 14%,
+    #1e3a8a 36%,
+    #5b21b6 58%,
+    #0f766e 78%,
+    #312e81 100%
+  );
+  background: var(--expertise-bg);
+  color: rgba(248, 250, 252, 0.96);
+}
+
+.industry-expertise__glow {
+  background: var(--expertise-overlay);
+  opacity: 0.52;
+}
+
+.industry-expertise h2 {
+  color: #f8fafc;
+  text-shadow:
+    0 0 24px rgba(167, 139, 250, 0.45),
+    0 0 48px rgba(34, 211, 238, 0.28);
+}
+
+.industry-expertise h2::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin: 1rem auto 0;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #22d3ee, #a78bfa, #f472b6);
+  box-shadow: 0 0 20px rgba(167, 139, 250, 0.55);
+}
+
+.industry-expertise h3 {
+  color: #ffffff;
+  text-shadow: 0 1px 18px rgba(15, 23, 42, 0.35);
+}
+
+.industry-expertise-intro {
+  width: 100%;
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.industry-expertise-meta {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 640px) {
+  .industry-expertise-meta {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.industry-expertise-meta > div {
+  padding: 1rem 1.15rem;
+}
+
+@media (min-width: 640px) {
+  .industry-expertise-meta > div:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+@media (max-width: 639px) {
+  .industry-expertise-meta > div:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+.industry-expertise-meta dt {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+.industry-expertise-meta dd {
+  margin: 0.45rem 0 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: rgba(252, 252, 255, 0.96);
+}
+
+.industry-expertise-card p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.industry-expertise-card {
+  position: relative;
+  border: 1px solid var(--expertise-card-border);
+  background:
+    linear-gradient(
+      155deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.05) 42%,
+      rgba(167, 139, 250, 0.12) 100%
+    ),
+    var(--expertise-card-bg);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 36px var(--expertise-card-glow);
+  backdrop-filter: blur(18px) saturate(165%);
+  -webkit-backdrop-filter: blur(18px) saturate(165%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .industry-expertise-card {
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.4s ease,
+      border-color 0.35s ease;
+  }
+
+  .industry-expertise-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+      0 0 48px rgba(34, 211, 238, 0.2),
+      0 0 64px rgba(167, 139, 250, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .industry-expertise-card {
+    transition: none;
+  }
+
+  .industry-expertise-card:hover {
+    transform: none;
+  }
+}
+
+.industry-expertise-icon-well {
+  border: 1px solid var(--expertise-icon-well-border);
+  background: var(--expertise-icon-well-bg);
+  color: #ffffff;
+  box-shadow:
+    0 0 24px rgba(34, 211, 238, 0.2),
+    0 0 32px rgba(167, 139, 250, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.industry-expertise-icon-well svg {
+  stroke: currentColor;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.35));
 }
 
 /* -----------------------------

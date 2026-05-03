@@ -4,6 +4,7 @@ import type { ReactElement } from "react";
 import type { MDXComponents } from "mdx/types";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const postsDirectory = path.join(process.cwd(), "src/app/blog");
 
@@ -52,9 +53,7 @@ export default async function BlogPostPage({
           <Post />
         </article>
       </main>
-      <footer className="border-t border-[var(--header-border)] bg-[var(--header-bg)] text-[var(--header-fg)] text-center py-4 mt-8">
-        &copy; {new Date().getFullYear()} Jindu Kwentua. All rights reserved.
-      </footer>
+      <SiteFooter className="mt-8" />
     </div>
   );
 }
