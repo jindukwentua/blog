@@ -66,7 +66,7 @@ export default function ContactPage() {
               Get in touch
             </h1>
             <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-[var(--muted)]">
-              Pick a channel — I respond to email first.
+              Pick a channel; I respond to email first.
             </p>
 
             <ul className="mt-8 space-y-3">

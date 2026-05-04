@@ -81,11 +81,11 @@ export function IndustryExpertise() {
           <dl className="industry-expertise-meta">
             <div>
               <dt>Background</dt>
-              <dd>Mathematics</dd>
+              <dd>Industrial Mathematics & Economics</dd>
             </div>
             <div>
               <dt>Experience</dt>
-              <dd>7+ years · Data scientist and engineer</dd>
+              <dd>7+ years · Data science, analytics &amp; data engineering</dd>
             </div>
             <div>
               <dt>Sectors</dt>
